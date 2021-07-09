@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-service-node
+  labels:
+    app: psnode
+spec:
+  selector:
+    app: psnode
+  ports:
+  - name: node
+    port: 80
+    targetPort: 8080

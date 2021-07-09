@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psnodedeployment
+  labels:
+    app: psnode
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: psnode
+  template:
+    metadata:
+      labels:
+        app: psnode
+    spec:
+      containers:
+      - name: psnode
+        image: hibrush/prometheus-node 
+        ports:
+        - containerPort: 8080
