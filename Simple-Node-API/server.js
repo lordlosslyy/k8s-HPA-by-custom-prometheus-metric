@@ -11,20 +11,13 @@ const Registry = prometheus.Registry;
 const register = new Registry(); 
 collectDefaultMetrics({register}); 
 
-//const register = prometheus.register; 
-// collectDefaultMetrics({}); 
-
 const nodeRequestsCounter = new prometheus.Counter({
     name: 'ian_node_requests',
     help: 'total requests',
-    registers: [register],
+    // registers: [register],
 });
 
-
-//collectDefaultMetrics({nodeRequestsCounter}); 
-// [END monitoring_sli_metrics_prometheus_setup]
-
-
+register.registerMetric(nodeRequestsCounter); 
 
 
 app.get('/', (req, res) => {
