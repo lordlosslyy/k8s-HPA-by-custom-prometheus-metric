@@ -30,7 +30,7 @@ Use `kubectl get namespace` , you can get all namespaces in this cluster
 (ps is helm namespace, you can name anything you want)
 or 
 
-`helm install ps prometheus-community/kube-prometheus-stack -n monitoring --reuse-values --set prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false`
+`helm install ps prometheus-community/kube-prometheus-stack -n monitoring --set prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false`
 
 > `--set prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false` let the prometheus detects every namespace
 
