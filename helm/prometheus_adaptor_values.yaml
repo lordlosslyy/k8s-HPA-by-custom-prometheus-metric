@@ -1,0 +1,12 @@
+prometheus:
+  url: http://ps-kube-prometheus-stack-prometheus.monitoring.svc
+
+rules:
+  custom:
+  - seriesQuery: '{__name__=~"^ian_node_requests$"}'
+    resources:
+      template: <<.Resource>>
+    name:
+      matches: ""
+      as: "ian_node_requests"
+    metricsQuery: sum(<<.Series>>{<<.LabelMatchers>>}) by (<<.GroupBy>>)
